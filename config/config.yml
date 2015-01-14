@@ -1,3 +1,9 @@
 mailer:
+    smtp_host: smtp.mandrillapp.com
+    smtp_port: 587
+    smtp_username: alex.nr@hotmail.fr
+    smtp_password: 4jdC8d9JtFCZxDgFjfvZ2A
+    smtp_secure: tls
+    smtp_from_email: noreply@mandrillapp.com
     webmaster_email_address: alex.zhixin@gmail.com
     alert_email_header: Hello, a deployment message has been generated:
