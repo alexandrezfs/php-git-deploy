@@ -7,10 +7,12 @@
 		private $branchToUpdate;
 		private $appBasePath;
 		private $cmd;
+		private $config;
 
 		function __construct($_appBasePath, $_branchToUpdate) {
 			$this->appBasePath = $_appBasePath;
 			$this->branchToUpdate = $_branchToUpdate;
+			$this->config = new Config();
 
 			$this->buildCmd();
 		}
@@ -23,6 +25,7 @@
 			git checkout ' . $this->branchToUpdate . ' &&
 			git fetch --all 2>&1 &&
 			git pull --all 2>&1';
+			$this->cmd .= ' && ' . $this->config->getAfterPullCommand() . ' 2>&1';
 		}
 
 		public function deploy() {

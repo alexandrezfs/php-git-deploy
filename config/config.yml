@@ -7,3 +7,5 @@ mailer:
     smtp_from_email: noreply@mandrillapp.com
     webmaster_email_address: alex.zhixin@gmail.com
     alert_email_header: Hello, a deployment message has been generated:
+hooks:
+    after_pull_command: forever restartall

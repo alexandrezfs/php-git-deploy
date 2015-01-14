@@ -22,6 +22,9 @@ class AlertMailer {
     
     function alertCmd($message) {
 
+        $finalMessage = $this->config->getHeaderMessage() . '<br>' . $message;
+        $finalMessage = nl2br($finalMessage);
+
         $this->mail->isSMTP();
         $this->mail->SMTPAuth = true;
         $this->mail->Host = $this->config->getSmtpHost();
@@ -34,7 +37,7 @@ class AlertMailer {
         $this->mail->addAddress($this->config->getWebmasterEmail(), 'PHP GIT DEPLOY');
         $this->mail->isHTML(true);
         $this->mail->Subject = 'Deployment notification';
-        $this->mail->Body = $this->config->getHeaderMessage() . '<br>' . $message;
+        $this->mail->Body = $finalMessage;
 
         if(!$this->mail->send()) {
             echo 'Message could not be sent.';

@@ -43,4 +43,8 @@
         public function getSmtpSecure() {
             return $this->config['mailer']['smtp_secure'];
         }
+
+        public function getAfterPullCommand() {
+            return $this->config['hooks']['after_pull_command'];
+        }
     }
