@@ -18,11 +18,11 @@
 		private function buildCmd() {
 			$this->cmd = '
 			#!/bin/sh
-			cd ' . $this->appBasePath . '
-			git reset --hard HEAD
-			git checkout ' . $this->branchToUpdate . '
-			git fetch --all
-			git pull --all';
+			cd ' . $this->appBasePath . ' &&
+			git reset --hard HEAD &&
+			git checkout ' . $this->branchToUpdate . ' &&
+			git fetch --all 2>&1 &&
+			git pull --all 2>&1';
 		}
 
 		public function deploy() {
