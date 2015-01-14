@@ -1,4 +1,6 @@
-<?php  
+<?php
+
+	namespace PhpDeploy;
 
 	class Command {
 
@@ -18,10 +20,13 @@
 		}
 
 		public function deploy() {
-			echo 'executing cmd...' . PHP_EOL;
-			echo  $this->cmd . PHP_EOL;
-			echo shell_exec($this->cmd) . PHP_EOL;
+			$shell_exec_result = 'executing cmd...' . PHP_EOL;
+			$shell_exec_result .= $this->cmd . PHP_EOL;
+			$shell_exec_result .= shell_exec($this->cmd) . PHP_EOL;
+			echo $shell_exec_result;
+
+			//Alert by mail
+			$alert = new AlertMailer();
+			$alert->alertCmd($shell_exec_result);
 		}
 	}
-	
-?>

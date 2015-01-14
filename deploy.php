@@ -1,6 +1,8 @@
 <?php
 
-	require_once('Command.php');
+	use PhpDeploy\Command;
+
+	require_once __DIR__ . '/vendor/autoload.php';
 
 	$replyArray = array();
 	$commandArgsArray = array(
@@ -35,5 +37,3 @@
 		$shell = new Command($commandArgsArray['appBasePath'], $commandArgsArray['branchToUpdate']);
 		$shell->deploy();
 	}
-	
-?>

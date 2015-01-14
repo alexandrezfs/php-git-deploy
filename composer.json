@@ -1,0 +1,9 @@
+{
+    "autoload": {
+        "psr-4": {"PhpDeploy\\": "lib/"}
+    },
+    "require": {
+        "phpmailer/phpmailer": "~5.2",
+        "symfony/yaml": "3.0.*@dev"
+    }
+}
