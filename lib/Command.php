@@ -16,7 +16,13 @@
 		}
 
 		private function buildCmd() {
-			$this->cmd = 'cd ' . $this->appBasePath . ' && git reset --hard HEAD && git checkout ' . $this->branchToUpdate . ' && git pull origin ' . $this->branchToUpdate;
+			$this->cmd = '
+			#!/bin/sh
+			cd ' . $this->appBasePath . '
+			git reset --hard HEAD
+			git checkout ' . $this->branchToUpdate . '
+			git fetch --all
+			git pull --all';
 		}
 
 		public function deploy() {
